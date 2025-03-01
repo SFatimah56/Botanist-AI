@@ -30,13 +30,17 @@ h2 {
 #messages {
     border: 1px solid #ddd;
     padding: 15px;
-    min-height: 200px;
+    height: 250px; /* Set a fixed height */
+    max-height: 300px; /* Limit max height */
     text-align: left;
-    background-color: #f9f9f9; /* Slightly lighter background for messages */
+    background-color: #f9f9f9; /* Slightly lighter background */
     border-radius: 8px;
-    overflow-y: auto;
+    overflow-y: auto; /* Enable scrolling */
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
 }
+
 
 /* Input and button styling */
 input, button {
