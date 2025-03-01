@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant AI Chatbot</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        #chatbox { width: 100%; max-width: 400px; margin: 0 auto; }
-        input, button { padding: 10px; margin-top: 10px; width: 100%; }
-        #messages { border: 1px solid #ccc; padding: 10px; min-height: 200px; text-align: left; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -34,24 +29,17 @@
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                   // Secret API Code will be published on Java Script File "Authorization": "Bearer YOUR_OPENAI_API_KEY"
+                    "Authorization": `Bearer YOUR_OPENAI_API_KEY`
                 },
                 body: JSON.stringify({
-                    model: "gpt-4",
-                    messages: [{ role: "system", content: "You are a helpful botanist AI." }, { role: "user", content: userText }]
+                    model: "gpt-3.5-turbo",
+                    messages: [{ role: "user", content: userText }]
                 })
             });
-
             let data = await response.json();
-            let botText = data.choices[0].message.content;
+            let aiText = data.choices[0].message.content;
 
-            messagesDiv.innerHTML += `<p><strong>Bot:</strong> ${botText}</p>`;
-
-            // Text-to-Speech
-            let speech = new SpeechSynthesisUtterance(botText);
-            speech.lang = "en-US";
-            speech.rate = 1;
-            window.speechSynthesis.speak(speech);
+            messagesDiv.innerHTML += `<p><strong>Bot:</strong> ${aiText}</p>`;
         }
     </script>
 
