@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
-    background-color: #f4f4f9;
+    /*background-color: #f4f4f9;*/
+    background-color: #b3e0ff;
 }
 
 #chatbox {
