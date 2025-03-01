@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant AI Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #chatbox { width: 100%; max-width: 400px; margin: 0 auto; }
+        input, button { padding: 10px; margin-top: 10px; width: 100%; }
+        #messages { border: 1px solid #ccc; padding: 10px; min-height: 200px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <h2>Plant AI Chatbot 🌱</h2>
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Ask me about plants...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            let userText = document.getElementById("userInput").value;
+            if (!userText) return;
+
+            let messagesDiv = document.getElementById("messages");
+            messagesDiv.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
+            document.getElementById("userInput").value = "";
+
+            // Fetch AI response
+            let response = await fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                   // Secret API Code will be published on Java Script File "Authorization": "Bearer YOUR_OPENAI_API_KEY"
+                },
+                body: JSON.stringify({
+                    model: "gpt-4",
+                    messages: [{ role: "system", content: "You are a helpful botanist AI." }, { role: "user", content: userText }]
+                })
+            });
+
+            let data = await response.json();
+            let botText = data.choices[0].message.content;
+
+            messagesDiv.innerHTML += `<p><strong>Bot:</strong> ${botText}</p>`;
+
+            // Text-to-Speech
+            let speech = new SpeechSynthesisUtterance(botText);
+            speech.lang = "en-US";
+            speech.rate = 1;
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>
