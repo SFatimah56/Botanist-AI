@@ -11,6 +11,10 @@ body {
     background-attachment: fixed; /* Keeps the background image fixed when scrolling */
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Main chat container */
 #chatbox {
     width: 100%;
@@ -115,7 +119,7 @@ input[type="text"] {
 
 .message.chatgpt::before {
     content: "🍃"; /* Adding a plant emoji before the chatbot message */
-    margin-right: 8px;
+    margin-right: px;
     font-size: 1.5rem;
 }
 
