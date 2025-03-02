@@ -1,3 +1,4 @@
+import OpenAI from "openai";
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -7,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const apiKey = process.env.OPENAI_API_KEY;
+openai.apiKey = process.env.OPENAI_API_KEY; //const apiKey = process.env.OPENAI_API_KEY; 
 
 app.post("/chat", async (req, res) => {
     try {
