@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-openai.apiKey = process.env.OPENAI_API_KEY; //const apiKey = process.env.OPENAI_API_KEY; 
+const apiKey = process.env.OPENAI_API_KEY; 
 
 app.post("/chat", async (req, res) => {
     try {
