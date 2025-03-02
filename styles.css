@@ -3,8 +3,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     padding: 20px;
-    background-color: #f0f4f8; /* A soft light background for a clean look */
-    color: #333; /* A neutral dark color for text to keep it readable */
+    background-color: #fff9e6; /* Soft yellow background */
+    color: #333; /* Neutral dark color for text */
+    background-image: 
+        repeating-linear-gradient(45deg, #e5f0e2 10%, #ffffff 20%), /* Subtle plant gradient pattern */
+        radial-gradient(circle, rgba(0, 255, 128, 0.1), rgba(255, 255, 255, 0.3)); /* Light green background with a subtle green hue */
+    background-attachment: fixed; /* Keeps the background image fixed when scrolling */
 }
 
 /* Main chat container */
@@ -12,7 +16,7 @@ body {
     width: 100%;
     max-width: 450px;
     margin: 0 auto;
-    background-color: #ffffff; /* White background for the chatbox for clarity */
+    background-color: rgba(255, 255, 255, 0.9); /* White background with transparency for the chatbox */
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Softer shadow for professionalism */
     padding: 20px;
@@ -21,26 +25,25 @@ body {
 
 /* Heading styling */
 h2 {
-    color: #037927; /* Dark teal color for a strong, professional title */
+    color: #2d6a4f; /* Deep green color for a strong, nature-inspired title */
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for effect */
 }
 
 /* Message display area */
 #messages {
     border: 1px solid #ddd;
     padding: 15px;
-    height: 250px; /* Set a fixed height */
-    max-height: 300px; /* Limit max height */
+    min-height: 200px;
     text-align: left;
-    background-color: #f9f9f9; /* Slightly lighter background */
+    background-color: #f9f9f9; /* Slightly lighter background for messages */
     border-radius: 8px;
-    overflow-y: auto; /* Enable scrolling */
+    overflow-y: auto;
     margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 /* Input and button styling */
 input, button {
@@ -54,15 +57,17 @@ input, button {
 
 /* Button styling */
 button {
-    background-color: #008CBA; /* Soft blue to keep the design professional */
+    background-color: #2d6a4f; /* Rich green button for a plant theme */
     color: white;
     cursor: pointer;
     font-weight: bold;
     border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 button:hover {
-    background-color: #005f73; /* Darker teal on hover */
+    background-color: #1b4e31; /* Darker green on hover */
 }
 
 /* Input box (user message area) */
@@ -70,7 +75,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #f2f2f2;
+    background-color: #e5f0e2; /* Light green background for the input */
 }
 
 /* User messages */
@@ -84,6 +89,7 @@ input[type="text"] {
     max-width: 80%;
     text-align: left;
     font-size: 1.1rem;
+    position: relative;
 }
 
 /* ChatGPT messages */
@@ -97,6 +103,20 @@ input[type="text"] {
     max-width: 80%;
     text-align: left;
     font-size: 1.1rem;
+    position: relative;
+}
+
+/* Plant Emojis in Message Area */
+.message.user::before {
+    content: "🌱"; /* Adding a plant emoji before the user message */
+    margin-right: 8px;
+    font-size: 1.5rem;
+}
+
+.message.chatgpt::before {
+    content: "🍃"; /* Adding a plant emoji before the chatbot message */
+    margin-right: 8px;
+    font-size: 1.5rem;
 }
 
 /* Mobile responsiveness */
