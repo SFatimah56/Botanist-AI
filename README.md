@@ -12,7 +12,7 @@ Plant AI Chatbot is an interactive web-based chatbot designed to provide users w
 ## 🍃 **User Interface & Design**  
 - Aesthetic UI for an engaging experience.
 - Aesthetic **green-themed** UI for an engaging experience.
-- 
+
 ## 🎨 **Styling**  
 - Smooth transitions and hover effects for buttons.  
 - Clean, modern design with readable fonts and soft colors.  
