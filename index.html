@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant AI Chatbot</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="index.js"></script>
+    <!-- Move the script to the end of body -->
 </head>
 <body>
 
@@ -16,40 +16,7 @@
         <button onclick="sendMessage()">Send</button>
     </div>
 
-    <script>
-        async function sendMessage() {
-            let userText = document.getElementById("userInput").value;
-            if (!userText) return;
-
-            let messagesDiv = document.getElementById("messages");
-            messagesDiv.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
-            document.getElementById("userInput").value = "";
-
-            // Fetch AI response
-            let response = await fetch("https://api.openai.com/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer OPENAI_API_KEY"
-                },
-                body: JSON.stringify({
-                    model: "gpt-4",
-                    messages: [{ role: "system", content: "You are a helpful botanist AI." }, { role: "user", content: userText }]
-                })
-            });
-
-            let data = await response.json();
-            let botText = data.choices[0].message.content;
-
-            messagesDiv.innerHTML += `<p><strong>Bot:</strong> ${botText}</p>`;
-
-            // Text-to-Speech
-            let speech = new SpeechSynthesisUtterance(botText);
-            speech.lang = "en-US";
-            speech.rate = 1;
-            window.speechSynthesis.speak(speech);
-        }
-    </script>
-
+    <!-- Add your external JavaScript file at the end of body -->
+    <script src="index.js"></script>
 </body>
 </html>
