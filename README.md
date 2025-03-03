@@ -15,8 +15,12 @@ Plant AI Chatbot is an interactive web-based chatbot designed to provide users w
 
 ## 🎨 **Styling**  
 - Smooth transitions and hover effects for buttons.  
-- Clean, modern design with readable fonts and soft colors.  
+- Clean, modern design with readable fonts and soft colors.
 
+## The Team
+- Fatimah Sweilem
+- Sahar Karimi
+- Abia Khan
 ## ⚙️ **Technology Stack**  
 - **HTML, CSS, and JavaScript** for the front-end.  
 - **CSS animations** for background effects and smooth transitions.  
