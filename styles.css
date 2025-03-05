@@ -11,6 +11,7 @@ body {
     background-attachment: fixed; /* Keeps the background image fixed when scrolling */
 }
 
+/* Apply box-sizing: border-box to all elements, ensuring padding and border are included within the element's total width and height */
 * {
   box-sizing: border-box;
 }
@@ -137,3 +138,4 @@ input[type="text"] {
         padding: 10px;
     }
 }
+
